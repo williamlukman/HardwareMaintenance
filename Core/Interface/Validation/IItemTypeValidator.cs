@@ -10,14 +10,14 @@ namespace Core.Interface.Validation
 {
     public interface IItemTypeValidator
     {
-        ItemType VName(ItemType itemType);
+        ItemType VName(ItemType itemType, IItemTypeService _itemTypeService);
         ItemType VHasMaintenance (ItemType itemType, IMaintenanceService _maintenanceService);
         ItemType VHasItem(ItemType itemType, IItemService _itemService);
-        ItemType VCreateObject(ItemType itemType);
-        ItemType VUpdateObject(ItemType itemType);
+        ItemType VCreateObject(ItemType itemType, IItemTypeService _itemTypeService);
+        ItemType VUpdateObject(ItemType itemType, IItemTypeService _itemTypeService);
         ItemType VDeleteObject(ItemType itemType, IItemService _itemService, IMaintenanceService _maintenanceService);
-        bool ValidCreateObject(ItemType itemType);
-        bool ValidUpdateObject(ItemType itemType);
+        bool ValidCreateObject(ItemType itemType, IItemTypeService _itemTypeService);
+        bool ValidUpdateObject(ItemType itemType, IItemTypeService _itemTypeService);
         bool ValidDeleteObject(ItemType itemType, IItemService _itemService, IMaintenanceService _maintenanceService);
         bool isValid(ItemType itemType);
         string PrintError(ItemType itemType);

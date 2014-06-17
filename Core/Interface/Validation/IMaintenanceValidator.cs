@@ -30,9 +30,9 @@ namespace Core.Interface.Validation
         Maintenance VHasSolutionCase(Maintenance maintenance);
 
         Maintenance VCreateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService);
+                                  IUserService _userService, ICustomerService _customerService);
         Maintenance VUpdateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService, IMaintenanceService _maintenanceService);
+                                  IUserService _userService, ICustomerService _customerService, IMaintenanceService _maintenanceService);
         Maintenance VDeleteObject(Maintenance maintenance);
         Maintenance VDiagnoseAndSolutionObject(Maintenance maintenance);
         Maintenance VConfirmObject(Maintenance maintenance);
@@ -40,9 +40,9 @@ namespace Core.Interface.Validation
         Maintenance VCancelDiagnoseAndSolutionObject(Maintenance maintenance);
 
         bool ValidCreateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService);
+                                  IUserService _userService, ICustomerService _customerService);
         bool ValidUpdateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService, IMaintenanceService _maintenanceService);
+                                  IUserService _userService, ICustomerService _customerService, IMaintenanceService _maintenanceService);
         bool ValidDeleteObject(Maintenance maintenance);
         bool ValidDiagnoseAndSolutionObject(Maintenance maintenance);
         bool ValidConfirmObject(Maintenance maintenance);

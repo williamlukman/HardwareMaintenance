@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace HardwareMaintenance
 {
-    class Program
+    public class Program
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Press any key to stop...");
+            Console.ReadKey();
         }
     }
 }

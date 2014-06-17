@@ -19,5 +19,6 @@ namespace Core.Interface.Service
         ItemType UpdateObject(ItemType itemType);
         ItemType SoftDeleteObject(ItemType itemType, IItemService _itemService, IMaintenanceService _maintenanceService);
         bool DeleteObject(int Id);
+        bool IsNameDuplicated(ItemType itemType);
     }
 }

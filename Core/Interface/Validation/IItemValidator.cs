@@ -11,14 +11,17 @@ namespace Core.Interface.Validation
     public interface IItemValidator
     {
         Item VHasUniqueCustomer(Item item, ICustomerService _customerService);
-        Item VHasItemType(Item item, IItemTypeService _itemTypeService);
+        Item VHasTypeId(Item item, IItemTypeService _itemTypeService);
+        Item VUpdateTypeIdHasMaintenance(Item item, IItemService _itemService, IMaintenanceService _maintenanceService);
         Item VHasMaintenance (Item item, IMaintenanceService _maintenanceService);
+        Item VUpdateCustomer(Item item, IItemService _itemService);
+
         Item VCreateObject(Item item, ICustomerService _customerService, IItemTypeService _itemTypeService);
-        Item VUpdateObject(Item item, ICustomerService _customerService, IItemTypeService _itemTypeService, IMaintenanceService _maintenanceService);
-        Item VDeleteObject(Item item, ICustomerService _customerService, IMaintenanceService _maintenanceService);
+        Item VUpdateObject(Item item, IItemService _itemService, IMaintenanceService _maintenanceService);
+        Item VDeleteObject(Item item, IMaintenanceService _maintenanceService);
         bool ValidCreateObject(Item item, ICustomerService _customerService, IItemTypeService _itemTypeService);
-        bool ValidUpdateObject(Item item, ICustomerService _customerService, IItemTypeService _itemTypeService, IMaintenanceService _maintenanceService);
-        bool ValidDeleteObject(Item item, ICustomerService _customerService, IMaintenanceService _maintenanceService);
+        bool ValidUpdateObject(Item item, IItemService _itemService, IMaintenanceService _maintenanceService);
+        bool ValidDeleteObject(Item item, IMaintenanceService _maintenanceService);
         bool isValid(Item item);
         string PrintError(Item item);
     }

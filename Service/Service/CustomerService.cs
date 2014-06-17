@@ -56,12 +56,12 @@ namespace Service.Service
         public Customer CreateObject(Customer customer)
         {
             customer.Errors = new Dictionary<String, String>();
-            return (_validator.ValidCreateObject(customer) ? _repository.CreateObject(customer) : customer);
+            return (_validator.ValidCreateObject(customer, this) ? _repository.CreateObject(customer) : customer);
         }
 
         public Customer UpdateObject(Customer customer)
         {
-            return (customer = _validator.ValidUpdateObject(customer) ? _repository.UpdateObject(customer) : customer);
+            return (customer = _validator.ValidUpdateObject(customer, this) ? _repository.UpdateObject(customer) : customer);
         }
 
         public Customer SoftDeleteObject(Customer customer, IItemService _itemService, IMaintenanceService _maintenanceService)
@@ -73,5 +73,12 @@ namespace Service.Service
         {
             return _repository.DeleteObject(Id);
         }
+
+        public bool IsNameDuplicated(Customer customer)
+        {
+            IQueryable<Customer> customers = _repository.FindAll(x => x.Name == customer.Name && !x.IsDeleted && x.Id != customer.Id);
+            return (customers.Count() > 0 ? true : false);
+        }
+
     }
 }

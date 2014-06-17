@@ -53,12 +53,12 @@ namespace Service.Service
         public ItemType CreateObject(ItemType itemType)
         {
             itemType.Errors = new Dictionary<String, String>();
-            return (_validator.ValidCreateObject(itemType) ? _repository.CreateObject(itemType) : itemType);
+            return (_validator.ValidCreateObject(itemType, this) ? _repository.CreateObject(itemType) : itemType);
         }
 
         public ItemType UpdateObject(ItemType itemType)
         {
-            return (itemType = _validator.ValidUpdateObject(itemType) ? _repository.UpdateObject(itemType) : itemType);
+            return (itemType = _validator.ValidUpdateObject(itemType, this) ? _repository.UpdateObject(itemType) : itemType);
         }
 
         public ItemType SoftDeleteObject(ItemType itemType, IItemService _itemService, IMaintenanceService _maintenanceService)
@@ -70,5 +70,12 @@ namespace Service.Service
         {
             return _repository.DeleteObject(Id);
         }
+
+        public bool IsNameDuplicated(ItemType itemType)
+        {
+            IQueryable<ItemType> types = _repository.FindAll(x => x.Name == itemType.Name && !x.IsDeleted && x.Id != itemType.Id);
+            return (types.Count() > 0 ? true : false);
+        }
+
     }
 }

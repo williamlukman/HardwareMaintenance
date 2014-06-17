@@ -61,16 +61,16 @@ namespace Service.Service
         }
 
         public Maintenance CreateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService)
+                                  IUserService _userService, ICustomerService _customerService)
         {
             maintenance.Errors = new Dictionary<String, String>();
-            return (_validator.ValidCreateObject(maintenance, _itemService, _itemTypeService, _userService) ? _repository.CreateObject(maintenance) : maintenance);
+            return (_validator.ValidCreateObject(maintenance, _itemService, _itemTypeService, _userService, _customerService) ? _repository.CreateObject(maintenance) : maintenance);
         }
 
         public Maintenance UpdateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService, IMaintenanceService _maintenanceService)
+                                  IUserService _userService, ICustomerService _customerService, IMaintenanceService _maintenanceService)
         {
-            return (maintenance = _validator.ValidUpdateObject(maintenance, _itemService, _itemTypeService, _userService, _maintenanceService) ? _repository.UpdateObject(maintenance) : maintenance);
+            return (maintenance = _validator.ValidUpdateObject(maintenance, _itemService, _itemTypeService, _userService, _customerService, _maintenanceService) ? _repository.UpdateObject(maintenance) : maintenance);
         }
 
         public Maintenance SoftDeleteObject(Maintenance maintenance)
