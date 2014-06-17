@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace Core.Interface.Repository
 {
-    public interface IUserRepository : IRepository<User>
+    public interface IUserRepository : IRepository<DbUser>
     {
-        IList<User> GetAll();
-        User GetObjectById(int Id);
-        User CreateObject(User user);
-        User UpdateObject(User user);
-        User SoftDeleteObject(User user);
+        IList<DbUser> GetAll();
+        DbUser GetObjectById(int Id);
+        DbUser CreateObject(DbUser user);
+        DbUser UpdateObject(DbUser user);
+        DbUser SoftDeleteObject(DbUser user);
         bool DeleteObject(int Id);
     }
 }

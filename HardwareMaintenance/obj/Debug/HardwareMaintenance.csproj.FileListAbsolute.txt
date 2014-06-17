@@ -4,3 +4,12 @@ C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\De
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\obj\Debug\HardwareMaintenance.csprojResolveAssemblyReference.cache
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\obj\Debug\HardwareMaintenance.exe
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\obj\Debug\HardwareMaintenance.pdb
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Core.dll
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Data.dll
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Service.dll
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Validation.dll
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\EntityFramework.dll
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Core.pdb
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Data.pdb
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Service.pdb
+C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Validation.pdb

@@ -10,18 +10,15 @@ namespace Core.Interface.Validation
 {
     public interface IUserValidator
     {
-        User VName(User user, IUserService _userService);
-        User VHasMaintenance (User user, IMaintenanceService _maintenanceService);
-        User VCreateObject(User user, IUserService _userService);
-        User VUpdateObject(User user, IUserService _userService);
-        User VDeleteObject(User user, IMaintenanceService _maintenanceService);
-        bool ValidCreateObject(User user, IUserService _userService);
-        bool ValidUpdateObject(User user, IUserService _userService);
-        bool ValidDeleteObject(User user, IMaintenanceService _maintenanceService);
-        bool isValid(User user);
-        string PrintError(User user);
-    }
-}
-
+        DbUser VName(DbUser user, IUserService _userService);
+        DbUser VHasMaintenance (DbUser user, IMaintenanceService _maintenanceService);
+        DbUser VCreateObject(DbUser user, IUserService _userService);
+        DbUser VUpdateObject(DbUser user, IUserService _userService);
+        DbUser VDeleteObject(DbUser user, IMaintenanceService _maintenanceService);
+        bool ValidCreateObject(DbUser user, IUserService _userService);
+        bool ValidUpdateObject(DbUser user, IUserService _userService);
+        bool ValidDeleteObject(DbUser user, IMaintenanceService _maintenanceService);
+        bool isValid(DbUser user);
+        string PrintError(DbUser user);
     }
 }

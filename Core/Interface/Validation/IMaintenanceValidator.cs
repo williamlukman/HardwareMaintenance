@@ -10,7 +10,7 @@ namespace Core.Interface.Validation
 {
     public interface IMaintenanceValidator
     {
-        Maintenance VHasItem(Maintenance maintenance, IItemService _itemService);
+        Maintenance VHasItem(Maintenance maintenance, IItemService _itemService, ICustomerService _customerService);
         Maintenance VHasCustomer(Maintenance maintenance, ICustomerService _customerService);
         Maintenance VHasItemType(Maintenance maintenance, IItemTypeService _itemTypeService);
         Maintenance VHasUser (Maintenance maintenance, IUserService _userService);
@@ -50,8 +50,5 @@ namespace Core.Interface.Validation
         bool ValidCancelDiagnoseAndSolutionObject(Maintenance maintenance);
         bool isValid(Maintenance maintenance);
         string PrintError(Maintenance maintenance);
-    }
-}
-
     }
 }

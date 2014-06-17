@@ -18,10 +18,10 @@ namespace Core.DomainModel
         public int Case { get; set; }
         public string Code { get; set; }
         public bool IsDiagnosed { get; set; }
-        public Nullable<string> Diagnosis { get; set; }
+        public string Diagnosis { get; set; }
         public Nullable<int> DiagnosisCase { get; set; }
         public Nullable<DateTime> DiagnosisDate { get; set; }
-        public Nullable<string> Solution { get; set; }
+        public string Solution { get; set; }
         public Nullable<int> SolutionCase { get; set; }
         public Nullable<DateTime> FinishDate { get; set; }
         public bool IsFinished { get; set; }
@@ -35,6 +35,6 @@ namespace Core.DomainModel
         public virtual Item Item { get; set; }
         public virtual ItemType ItemType { get; set; }
         public virtual Customer Customer { get; set; }
-        public virtual User User { get; set; }
+        public virtual DbUser DbUser { get; set; }
     }
 }

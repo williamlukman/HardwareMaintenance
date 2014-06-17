@@ -11,14 +11,14 @@ namespace Core.Interface.Service
     public interface IUserService
     {
         IUserValidator GetValidator();
-        IList<User> GetAll();
-        User GetObjectById(int Id);
-        User GetObjectByName(string Name);
-        User CreateObject(User user);
-        User CreateObject(string Name, string Description);
-        User UpdateObject(User user);
-        User SoftDeleteObject(User user, IMaintenanceService _maintenanceService);
+        IList<DbUser> GetAll();
+        DbUser GetObjectById(int Id);
+        DbUser GetObjectByName(string Name);
+        DbUser CreateObject(DbUser user);
+        DbUser CreateObject(string Name, string Description);
+        DbUser UpdateObject(DbUser user);
+        DbUser SoftDeleteObject(DbUser user, IMaintenanceService _maintenanceService);
         bool DeleteObject(int Id);
-        bool IsNameDuplicated(User user);
+        bool IsNameDuplicated(DbUser user);
     }
 }

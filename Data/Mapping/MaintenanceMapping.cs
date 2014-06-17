@@ -15,16 +15,16 @@ namespace Data.Mapping
             HasKey(m => m.Id);
             HasRequired(m => m.Item)
                 .WithMany(i => i.Maintenances)
-                .HasForeignKey(m => m.ItemId);
+                .WillCascadeOnDelete(false);
             HasRequired(m => m.ItemType)
                 .WithMany(it => it.Maintenances)
-                .HasForeignKey(m => m.ItemTypeId);
+                .WillCascadeOnDelete(false);
             HasRequired(m => m.Customer)
                 .WithMany(c => c.Maintenances)
-                .HasForeignKey(m => m.CustomerId);
-            HasRequired(m => m.User)
+                .WillCascadeOnDelete(false);
+            HasRequired(m => m.DbUser)
                 .WithMany(u => u.Maintenances)
-                .HasForeignKey(m => m.UserId);
+                .WillCascadeOnDelete(false);
             Ignore(m => m.Errors);
         }
     }

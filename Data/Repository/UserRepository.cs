@@ -11,7 +11,7 @@ using System.Data;
 
 namespace Data.Repository
 {
-    public class UserRepository : EfRepository<User>, IUserRepository
+    public class UserRepository : EfRepository<DbUser>, IUserRepository
     {
 
         private HardwareMaintenanceEntities entities;
@@ -20,33 +20,33 @@ namespace Data.Repository
             entities = new HardwareMaintenanceEntities();
         }
 
-        public IList<User> GetAll()
+        public IList<DbUser> GetAll()
         {
             return FindAll().ToList();
         }
 
-        public User GetObjectById(int Id)
+        public DbUser GetObjectById(int Id)
         {
-            User user = Find(x => x.Id == Id && !x.IsDeleted);
+            DbUser user = Find(x => x.Id == Id && !x.IsDeleted);
             if (user != null) { user.Errors = new Dictionary<string, string>(); }
             return user;
         }
 
-        public User CreateObject(User user)
+        public DbUser CreateObject(DbUser user)
         {
             user.IsDeleted = false;
             user.CreatedAt = DateTime.Now;
             return Create(user);
         }
 
-        public User UpdateObject(User user)
+        public DbUser UpdateObject(DbUser user)
         {
             user.UpdatedAt = DateTime.Now;
             Update(user);
             return user;
         }
 
-        public User SoftDeleteObject(User user)
+        public DbUser SoftDeleteObject(DbUser user)
         {
             user.IsDeleted = true;
             user.DeletedAt = DateTime.Now;
@@ -56,7 +56,7 @@ namespace Data.Repository
 
         public bool DeleteObject(int Id)
         {
-            User user = Find(x => x.Id == Id);
+            DbUser user = Find(x => x.Id == Id);
             return (Delete(user) == 1) ? true : false;
         }
     }

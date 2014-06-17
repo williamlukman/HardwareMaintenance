@@ -55,10 +55,10 @@ namespace Validation.Validation
 
         public Maintenance VHasUser(Maintenance maintenance, IUserService _userService)
         {
-            User user = _userService.GetObjectById(maintenance.UserId);
+            DbUser user = _userService.GetObjectById(maintenance.UserId);
             if (user == null)
             {
-                maintenance.Errors.Add("User", "Tidak boleh tidak ada");
+                maintenance.Errors.Add("DbUser", "Tidak boleh tidak ada");
             }
             return maintenance;
         }
@@ -137,12 +137,7 @@ namespace Validation.Validation
 
         public Maintenance VHasDiagnosis(Maintenance maintenance)
         {
-            if (maintenance.Diagnosis == null)
-            {
-                maintenance.Errors.Add("Diagnosis", "Tidak boleh tidak ada");
-                return maintenance;
-            }
-            String diagnosis = maintenance.Diagnosis.GetValueOrDefault();
+            String diagnosis = maintenance.Diagnosis;
             if (String.IsNullOrEmpty(diagnosis) || diagnosis.Trim() == "")
             {
                 maintenance.Errors.Add("Diagnosis", "Tidak boleh kosong");
@@ -177,12 +172,7 @@ namespace Validation.Validation
 
         public Maintenance VHasSolution(Maintenance maintenance)
         {
-            if (maintenance.Solution == null)
-            {
-                maintenance.Errors.Add("Solution", "Tidak boleh tidak ada");
-                return maintenance;
-            }
-            String solution = maintenance.Solution.GetValueOrDefault();
+            String solution = maintenance.Solution;
             if (String.IsNullOrEmpty(solution) || solution.Trim() == "")
             {
                 maintenance.Errors.Add("Solution", "Tidak boleh kosong");

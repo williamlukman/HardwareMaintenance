@@ -19,9 +19,9 @@ namespace Core.Interface.Service
         Maintenance GetObjectById(int Id);
         Maintenance GetObjectByCode(string Code);
         Maintenance CreateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService);
+                                  IUserService _userService, ICustomerService _customerService);
         Maintenance UpdateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
-                                  IUserService _userService, IMaintenanceService _maintenanceService);
+                                  IUserService _userService, ICustomerService _customerService, IMaintenanceService _maintenanceService);
         Maintenance SoftDeleteObject(Maintenance maintenance);
         Maintenance DiagnoseAndSolutionObject(Maintenance maintenance);
         Maintenance ConfirmObject(Maintenance maintenance);

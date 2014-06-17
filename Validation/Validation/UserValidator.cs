@@ -13,7 +13,7 @@ namespace Validation.Validation
     public class UserValidator : IUserValidator
     {
 
-        public User VName(User user, IUserService _userService)
+        public DbUser VName(DbUser user, IUserService _userService)
         {
             if (String.IsNullOrEmpty(user.Name) || user.Name.Trim() == "")
             {
@@ -26,7 +26,7 @@ namespace Validation.Validation
             return user;
         }
 
-        public User VHasMaintenance(User user, IMaintenanceService _maintenanceService)
+        public DbUser VHasMaintenance(DbUser user, IMaintenanceService _maintenanceService)
         {
             IList<Maintenance> list = _maintenanceService.GetObjectsByUserId(user.Id);
             if (list.Any())
@@ -36,51 +36,51 @@ namespace Validation.Validation
             return user;
         }
 
-        public User VCreateObject(User user, IUserService _userService)
+        public DbUser VCreateObject(DbUser user, IUserService _userService)
         {
             VName(user, _userService);
             return user;
         }
 
-        public User VUpdateObject(User user, IUserService _userService)
+        public DbUser VUpdateObject(DbUser user, IUserService _userService)
         {
             VName(user, _userService);
             return user;
         }
 
-        public User VDeleteObject(User user, IMaintenanceService _maintenanceService)
+        public DbUser VDeleteObject(DbUser user, IMaintenanceService _maintenanceService)
         {
             VHasMaintenance(user, _maintenanceService);
             return user;
         }
 
-        public bool ValidCreateObject(User user, IUserService _userService)
+        public bool ValidCreateObject(DbUser user, IUserService _userService)
         {
             VCreateObject(user, _userService);
             return isValid(user);
         }
 
-        public bool ValidUpdateObject(User user, IUserService _userService)
+        public bool ValidUpdateObject(DbUser user, IUserService _userService)
         {
             user.Errors.Clear();
             VUpdateObject(user, _userService);
             return isValid(user);
         }
 
-        public bool ValidDeleteObject(User user, IMaintenanceService _maintenanceService)
+        public bool ValidDeleteObject(DbUser user, IMaintenanceService _maintenanceService)
         {
             user.Errors.Clear();
             VDeleteObject(user, _maintenanceService);
             return isValid(user);
         }
 
-        public bool isValid(User obj)
+        public bool isValid(DbUser obj)
         {
             bool isValid = !obj.Errors.Any();
             return isValid;
         }
 
-        public string PrintError(User obj)
+        public string PrintError(DbUser obj)
         {
             string erroroutput = "";
             KeyValuePair<string, string> first = obj.Errors.ElementAt(0);

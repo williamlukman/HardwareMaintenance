@@ -11,7 +11,7 @@ namespace Data.Repository
     public class EfRepository<T> : IRepository<T>
          where T : class
     {
-        protected StockControlEntities Context;
+        protected HardwareMaintenanceEntities Context;
 
         //EfRepository(DbContext context) : this(context, false) { }
         //EfRepository(DbContext context, bool sharedContext)
@@ -22,7 +22,7 @@ namespace Data.Repository
 
         public EfRepository()
         {
-            Context = new StockControlEntities();
+            Context = new HardwareMaintenanceEntities();
         }
 
         protected DbSet<T> DbSet
@@ -33,9 +33,9 @@ namespace Data.Repository
             }
         }
 
-        public StockControlEntities GetContext()
+        public HardwareMaintenanceEntities GetContext()
         {
-            return new StockControlEntities();
+            return new HardwareMaintenanceEntities();
         }
 
         public IQueryable<T> All()

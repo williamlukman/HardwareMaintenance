@@ -13,8 +13,8 @@ namespace Data.Mapping
         public ItemTypeMapping()
         {
             HasKey(it => it.Id);
-            HasOptional(it => it.Items);
-            HasOptional(it => it.Maintenances);
+            HasMany(it => it.Items);
+            HasMany(it => it.Maintenances);
             Ignore(c => c.Errors);
         }
     }

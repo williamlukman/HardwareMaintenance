@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace Data.Mapping
 {
-    public class UserMapping : EntityTypeConfiguration<User>
+    public class UserMapping : EntityTypeConfiguration<DbUser>
     {
         public UserMapping()
         {
             HasKey(u => u.Id);
-            HasOptional(i => i.Maintenances);
+            HasMany(i => i.Maintenances);
             Ignore(c => c.Errors);
         }
     }

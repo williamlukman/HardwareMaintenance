@@ -14,13 +14,12 @@ namespace Data.Context
     {
         public HardwareMaintenanceEntities()
         {
-            Database.SetInitializer<HardwareMaintenanceEntities>(new DropCreateDatabaseIfModelChanges<HardwareMaintenanceEntities>());
+            Database.SetInitializer<HardwareMaintenanceEntities>(new DropCreateDatabaseAlways<HardwareMaintenanceEntities>());
         }
 
         public void DeleteAllTables()
         {
-            IList<String> tableNames = new List<String>()
-            {"Maintenance", "Item", "Customer", "User", "Type"};
+            IList<String> tableNames = new List<String>() { "Customer", "ItemType", "Item", "DbUser", "Maintenance" };
 
             foreach (var tableName in tableNames)
             {
@@ -45,6 +44,6 @@ namespace Data.Context
         public DbSet<Item> Items { get; set; }
         public DbSet<ItemType> ItemTypes { get; set; }
         public DbSet<Maintenance> Maintenances { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<DbUser> DbUsers { get; set; }
     }
 }

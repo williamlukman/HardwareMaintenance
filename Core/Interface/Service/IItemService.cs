@@ -17,8 +17,8 @@ namespace Core.Interface.Service
         Item GetObjectById(int Id);
         Item GetObjectByCode(string Code);
         Item CreateObject(Item item, ICustomerService _customerService, IItemTypeService _itemTypeService);
-        Item UpdateObject(Item item, ICustomerService _customerService, IItemTypeService _itemTypeService, IMaintenanceService _maintenanceService);
-        Item SoftDeleteObject(Item item, ICustomerService _customerService, IMaintenanceService _maintenanceService);
+        Item UpdateObject(Item item, IItemService _itemService, IMaintenanceService _maintenanceService);
+        Item SoftDeleteObject(Item item, IMaintenanceService _maintenanceService);
         bool DeleteObject(int Id);
     }
 }

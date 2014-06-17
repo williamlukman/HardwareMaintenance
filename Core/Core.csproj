@@ -44,7 +44,7 @@
     <Compile Include="DomainModel\Item.cs" />
     <Compile Include="DomainModel\Customer.cs" />
     <Compile Include="DomainModel\ItemType.cs" />
-    <Compile Include="DomainModel\User.cs" />
+    <Compile Include="DomainModel\DbUser.cs" />
     <Compile Include="Interface\Repository\IMaintenanceRepository.cs" />
     <Compile Include="Interface\Repository\IUserRepository.cs" />
     <Compile Include="Interface\Repository\IItemTypeRepository.cs" />

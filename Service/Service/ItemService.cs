@@ -56,14 +56,14 @@ namespace Service.Service
             return (_validator.ValidCreateObject(item, _customerService, _itemTypeService) ? _repository.CreateObject(item) : item);
         }
 
-        public Item UpdateObject(Item item, ICustomerService _customerService, IItemTypeService _itemTypeService, IMaintenanceService _maintenanceService)
+        public Item UpdateObject(Item item, IItemService _itemService, IMaintenanceService _maintenanceService)
         {
-            return (item = _validator.ValidUpdateObject(item, _customerService, _itemTypeService, _maintenanceService) ? _repository.UpdateObject(item) : item);
+            return (item = _validator.ValidUpdateObject(item, _itemService, _maintenanceService) ? _repository.UpdateObject(item) : item);
         }
 
-        public Item SoftDeleteObject(Item item, ICustomerService _customerService, IMaintenanceService _maintenanceService)
+        public Item SoftDeleteObject(Item item, IMaintenanceService _maintenanceService)
         {
-            return (item = _validator.ValidDeleteObject(item, _customerService, _maintenanceService) ? _repository.SoftDeleteObject(item) : item);
+            return (item = _validator.ValidDeleteObject(item, _maintenanceService) ? _repository.SoftDeleteObject(item) : item);
         }
 
         public bool DeleteObject(int Id)

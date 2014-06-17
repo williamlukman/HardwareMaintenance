@@ -23,6 +23,3 @@ namespace Core.Interface.Validation
         string PrintError(Customer customer);
     }
 }
-
-    }
-}

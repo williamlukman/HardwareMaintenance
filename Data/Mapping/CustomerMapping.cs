@@ -13,7 +13,7 @@ namespace Data.Mapping
         public CustomerMapping()
         {
             HasKey(c => c.Id);
-            HasOptional(c => c.Items);
+            HasMany(c => c.Items);
             Ignore(c => c.Errors);
         }
     }

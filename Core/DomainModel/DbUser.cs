@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.DomainModel
 {
-    public partial class User
+    public partial class DbUser
     {
         public int Id { get; set; }
         public string Name { get; set; }

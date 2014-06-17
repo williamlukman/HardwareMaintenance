@@ -25,24 +25,24 @@ namespace Service.Service
             return _validator;
         }
 
-        public IList<User> GetAll()
+        public IList<DbUser> GetAll()
         {
             return _repository.GetAll();
         }
 
-        public User GetObjectById(int Id)
+        public DbUser GetObjectById(int Id)
         {
             return _repository.GetObjectById(Id);
         }
 
-        public User GetObjectByName(string name)
+        public DbUser GetObjectByName(string name)
         {
             return _repository.FindAll(u => u.Name == name && !u.IsDeleted).FirstOrDefault();
         }
 
-        public User CreateObject(string Name, string Description)
+        public DbUser CreateObject(string Name, string Description)
         {
-            User user = new User
+            DbUser user = new DbUser
             {
                 Name = Name,
                 Description = Description
@@ -50,18 +50,18 @@ namespace Service.Service
             return this.CreateObject(user);
         }
 
-        public User CreateObject(User user)
+        public DbUser CreateObject(DbUser user)
         {
             user.Errors = new Dictionary<String, String>();
             return (_validator.ValidCreateObject(user, this) ? _repository.CreateObject(user) : user);
         }
 
-        public User UpdateObject(User user)
+        public DbUser UpdateObject(DbUser user)
         {
             return (user = _validator.ValidUpdateObject(user, this) ? _repository.UpdateObject(user) : user);
         }
 
-        public User SoftDeleteObject(User user, IMaintenanceService _maintenanceService)
+        public DbUser SoftDeleteObject(DbUser user, IMaintenanceService _maintenanceService)
         {
             return (user = _validator.ValidDeleteObject(user, _maintenanceService) ? _repository.SoftDeleteObject(user) : user);
         }
@@ -71,9 +71,9 @@ namespace Service.Service
             return _repository.DeleteObject(Id);
         }
 
-        public bool IsNameDuplicated(User user)
+        public bool IsNameDuplicated(DbUser user)
         {
-            IQueryable<User> users = _repository.FindAll(x => x.Name == user.Name && !x.IsDeleted && x.Id != user.Id);
+            IQueryable<DbUser> users = _repository.FindAll(x => x.Name == user.Name && !x.IsDeleted && x.Id != user.Id);
             return (users.Count() > 0 ? true : false);
         }
 
