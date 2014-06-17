@@ -17,6 +17,6 @@ namespace Core.Interface.Repository
         Item UpdateObject(Item item);
         Item SoftDeleteObject(Item item);
         bool DeleteObject(int Id);
-        string SetObjectCode();
+        string SetObjectCode(Item obj);
     }
 }

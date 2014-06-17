@@ -15,8 +15,9 @@ namespace Core.Interface.Service
         User GetObjectById(int Id);
         User GetObjectByName(string Name);
         User CreateObject(User user);
+        User CreateObject(string Name, string Description);
         User UpdateObject(User user);
-        User SoftDeleteObject(User user);
+        User SoftDeleteObject(User user, IMaintenanceService _maintenanceService);
         bool DeleteObject(int Id);
     }
 }

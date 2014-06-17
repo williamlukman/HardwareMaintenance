@@ -10,6 +10,10 @@ namespace Core.Interface.Repository
     public interface IMaintenanceRepository : IRepository<Maintenance>
     {
         IList<Maintenance> GetAll();
+        IList<Maintenance> GetObjectsByItemId(int ItemId);
+        IList<Maintenance> GetObjectsByCustomerId(int CustomerId);
+        IList<Maintenance> GetObjectsByItemTypeId(int ItemTypeId);
+        IList<Maintenance> GetObjectsByUserId(int UserId);
         Maintenance GetObjectById(int Id);
         Maintenance CreateObject(Maintenance maintenance);
         Maintenance UpdateObject(Maintenance maintenance);
@@ -19,6 +23,6 @@ namespace Core.Interface.Repository
         Maintenance UnconfirmObject(Maintenance maintenance);
         Maintenance CancelDiagnoseAndSolutionObject(Maintenance maintenace);
         bool DeleteObject(int Id);
-        string SetObjectCode();
+        string SetObjectCode(Maintenance obj);
     }
 }

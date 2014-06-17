@@ -12,8 +12,12 @@ namespace Core.Interface.Service
     {
         IMaintenanceValidator GetValidator();
         IList<Maintenance> GetAll();
+        IList<Maintenance> GetObjectsByItemId(int ItemId);
+        IList<Maintenance> GetObjectsByCustomerId(int CustomerId);
+        IList<Maintenance> GetObjectsByItemTypeId(int ItemTypeId);
+        IList<Maintenance> GetObjectsByUserId(int UserId);
         Maintenance GetObjectById(int Id);
-        Maintenance GetObjectByName(string Name);
+        Maintenance GetObjectByCode(string Code);
         Maintenance CreateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
                                   IUserService _userService);
         Maintenance UpdateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
