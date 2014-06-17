@@ -14,8 +14,10 @@ namespace Core.Interface.Service
         IList<Maintenance> GetAll();
         Maintenance GetObjectById(int Id);
         Maintenance GetObjectByName(string Name);
-        Maintenance CreateObject(Maintenance maintenance);
-        Maintenance UpdateObject(Maintenance maintenance);
+        Maintenance CreateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
+                                  IUserService _userService);
+        Maintenance UpdateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
+                                  IUserService _userService, IMaintenanceService _maintenanceService);
         Maintenance SoftDeleteObject(Maintenance maintenance);
         Maintenance DiagnoseAndSolutionObject(Maintenance maintenance);
         Maintenance ConfirmObject(Maintenance maintenance);

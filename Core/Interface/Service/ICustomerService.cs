@@ -16,7 +16,7 @@ namespace Core.Interface.Service
         Customer GetObjectByName(string Name);
         Customer CreateObject(Customer customer);
         Customer UpdateObject(Customer customer);
-        Customer SoftDeleteObject(Customer customer);
+        Customer SoftDeleteObject(Customer customer, IItemService _itemService, IMaintenanceService _maintenanceService);
         bool DeleteObject(int Id);
     }
 }

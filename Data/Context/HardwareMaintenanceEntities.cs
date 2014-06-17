@@ -1,4 +1,5 @@
 ﻿using Core.DomainModel;
+using Data.Mapping;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -33,7 +34,7 @@ namespace Data.Context
 
             modelBuilder.Configurations.Add(new CustomerMapping());
             modelBuilder.Configurations.Add(new ItemMapping());
-            modelBuilder.Configurations.Add(new TypeMapping());
+            modelBuilder.Configurations.Add(new ItemTypeMapping());
             modelBuilder.Configurations.Add(new MaintenanceMapping());
             modelBuilder.Configurations.Add(new UserMapping());
 
