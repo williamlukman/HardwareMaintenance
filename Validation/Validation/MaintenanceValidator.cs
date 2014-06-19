@@ -43,12 +43,23 @@ namespace Validation.Validation
             return maintenance;
         }
 
-        public Maintenance VHasItemType(Maintenance maintenance, IItemTypeService _itemTypeService)
+        public Maintenance VHasItemTypeByItem(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService)
+        {
+            Item item = _itemService.GetObjectById(maintenance.ItemId);
+            ItemType itemType = _itemTypeService.GetObjectById(item.ItemTypeId);
+            if (itemType == null)
+            {
+                maintenance.Errors.Add("ItemType", "Tidak boleh tidak ada");
+            }
+            return maintenance;
+        }
+
+        public Maintenance VHasItemType(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService)
         {
             ItemType itemType = _itemTypeService.GetObjectById(maintenance.ItemTypeId);
             if (itemType == null)
             {
-                maintenance.Errors.Add("ItemType", "Tidak boleh tidak ada");
+                VHasItemTypeByItem(maintenance, _itemService, _itemTypeService);
             }
             return maintenance;
         }
@@ -203,7 +214,7 @@ namespace Validation.Validation
             if (maintenance.Errors.Any()) { return maintenance; }
             VHasCustomer(maintenance, _customerService);
             if (maintenance.Errors.Any()) { return maintenance; }
-            VHasItemType(maintenance, _itemTypeService);
+            VHasItemType(maintenance, _itemService, _itemTypeService);
             if (maintenance.Errors.Any()) { return maintenance; }
             VHasUser(maintenance, _userService);
             if (maintenance.Errors.Any()) { return maintenance; }
@@ -224,7 +235,7 @@ namespace Validation.Validation
             if (maintenance.Errors.Any()) { return maintenance; }
             VUpdateCustomer(maintenance, _maintenanceService);
             if (maintenance.Errors.Any()) { return maintenance; }
-            VHasItemType(maintenance, _itemTypeService);
+            VHasItemType(maintenance, _itemService, _itemTypeService);
             if (maintenance.Errors.Any()) { return maintenance; }
             VHasUser(maintenance, _userService);
             if (maintenance.Errors.Any()) { return maintenance; }

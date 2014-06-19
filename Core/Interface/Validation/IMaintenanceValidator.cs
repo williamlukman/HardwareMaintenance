@@ -12,7 +12,8 @@ namespace Core.Interface.Validation
     {
         Maintenance VHasItem(Maintenance maintenance, IItemService _itemService, ICustomerService _customerService);
         Maintenance VHasCustomer(Maintenance maintenance, ICustomerService _customerService);
-        Maintenance VHasItemType(Maintenance maintenance, IItemTypeService _itemTypeService);
+        Maintenance VHasItemTypeByItem(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService);
+        Maintenance VHasItemType(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService);
         Maintenance VHasUser (Maintenance maintenance, IUserService _userService);
         Maintenance VHasRequestDate(Maintenance maintenance);
         Maintenance VHasComplaint(Maintenance maintenance);

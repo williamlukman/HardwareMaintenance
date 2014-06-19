@@ -13,10 +13,12 @@ namespace Data.Mapping
         public ItemMapping()
         {
             HasKey(i => i.Id);
-            HasMany(i => i.Maintenances);
+            HasMany(i => i.Maintenances)
+                .WithRequired(m => m.Item)
+                .HasForeignKey(m => m.ItemId);
             HasRequired(i => i.Customer)
                 .WithMany(c => c.Items)
-                .WillCascadeOnDelete(false);
+                .HasForeignKey(i => i.CustomerId);
             HasRequired(i => i.ItemType)
                 .WithMany(it => it.Items)
                 .HasForeignKey(i => i.ItemTypeId);

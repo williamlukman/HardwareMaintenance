@@ -13,7 +13,9 @@ namespace Data.Mapping
         public UserMapping()
         {
             HasKey(u => u.Id);
-            HasMany(i => i.Maintenances);
+            HasMany(i => i.Maintenances)
+                .WithRequired(m => m.DbUser)
+                .HasForeignKey(m => m.UserId);
             Ignore(c => c.Errors);
         }
     }

@@ -64,7 +64,31 @@ namespace Service.Service
                                   IUserService _userService, ICustomerService _customerService)
         {
             maintenance.Errors = new Dictionary<String, String>();
-            return (_validator.ValidCreateObject(maintenance, _itemService, _itemTypeService, _userService, _customerService) ? _repository.CreateObject(maintenance) : maintenance);
+            if (_validator.ValidCreateObject(maintenance, _itemService, _itemTypeService, _userService, _customerService))
+            {
+                Item item = _itemService.GetObjectById(maintenance.ItemId);
+                maintenance.ItemTypeId = item.ItemTypeId;
+                return _repository.CreateObject(maintenance);
+            }
+            else
+            {
+                return maintenance;
+            }
+        }
+
+        public Maintenance CreateObject(int ItemId, int CustomerId, int UserId, DateTime RequestDate, string Complaint, int MaintenanceCase,
+                                        IItemService _itemService, IItemTypeService _itemTypeService, IUserService _userService, ICustomerService _customerService)
+        {
+            Maintenance maintenance = new Maintenance()
+            {
+                ItemId = ItemId,
+                CustomerId = CustomerId,
+                UserId = UserId,
+                RequestDate = RequestDate,
+                Complaint = Complaint,
+                Case = MaintenanceCase
+            };
+            return this.CreateObject(maintenance, _itemService, _itemTypeService, _userService, _customerService);
         }
 
         public Maintenance UpdateObject(Maintenance maintenance, IItemService _itemService, IItemTypeService _itemTypeService,
@@ -81,6 +105,16 @@ namespace Service.Service
         public Maintenance DiagnoseAndSolutionObject(Maintenance maintenance)
         {
             return (maintenance = _validator.ValidDiagnoseAndSolutionObject(maintenance) ? _repository.DiagnoseAndSolutionObject(maintenance) : maintenance);
+        }
+
+        public Maintenance DiagnoseAndSolutionObject(Maintenance maintenance, string Diagnosis, int DiagnosisCase, DateTime DiagnosisDate, string Solution, int SolutionCase)
+        {
+            maintenance.Diagnosis = Diagnosis;
+            maintenance.DiagnosisCase = DiagnosisCase;
+            maintenance.DiagnosisDate = DiagnosisDate;
+            maintenance.Solution = Solution;
+            maintenance.SolutionCase = SolutionCase;
+            return this.DiagnoseAndSolutionObject(maintenance);
         }
 
         public Maintenance ConfirmObject(Maintenance maintenance)

@@ -13,8 +13,12 @@ namespace Data.Mapping
         public ItemTypeMapping()
         {
             HasKey(it => it.Id);
-            HasMany(it => it.Items);
-            HasMany(it => it.Maintenances);
+            HasMany(it => it.Items)
+                .WithRequired(i => i.ItemType)
+                .HasForeignKey(i => i.ItemTypeId);
+            HasMany(it => it.Maintenances)
+                .WithRequired(m => m.ItemType)
+                .HasForeignKey(m => m.ItemTypeId);
             Ignore(c => c.Errors);
         }
     }

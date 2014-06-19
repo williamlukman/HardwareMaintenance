@@ -8,7 +8,6 @@ C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\De
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Data.dll
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Service.dll
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Validation.dll
-C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\EntityFramework.dll
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Core.pdb
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Data.pdb
 C:\Users\Samsung\Documents\GitHub\HardwareMaintenance\HardwareMaintenance\bin\Debug\Service.pdb
