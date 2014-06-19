@@ -54,6 +54,10 @@ namespace Data.Repository
 
         public Maintenance CreateObject(Maintenance maintenance)
         {
+            maintenance.IsFinished = false;
+            maintenance.IsDiagnosed = false;
+            maintenance.Diagnosis = "";
+            maintenance.Solution = "";
             maintenance.Code = SetObjectCode(maintenance);
             maintenance.IsDeleted = false;
             maintenance.CreatedAt = DateTime.Now;

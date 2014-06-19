@@ -50,6 +50,7 @@
     <Compile Include="Mapping\ItemMapping.cs" />
     <Compile Include="Mapping\CustomerMapping.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\ItemTypeRepository.cs" />
     <Compile Include="Repository\MaintenanceRepository.cs" />
     <Compile Include="Repository\ItemRepository.cs" />
     <Compile Include="Repository\CustomerRepository.cs" />
